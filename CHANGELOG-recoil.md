@@ -3,6 +3,9 @@
 ## UPCOMING
 **_Add new changes here as they land_**
 
+## 1.0.0
+- Add React 19 support
+
 ## 0.7.7 (2023-03-01)
 
 - Fix potential unhandled promise rejection in `useRecoilCallback()` (#2075)

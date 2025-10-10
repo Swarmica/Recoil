@@ -1,6 +1,6 @@
 {
-  "name": "recoil",
-  "version": "0.7.7",
+  "name": "@swarmica/recoil",
+  "version": "1.0.0",
   "description": "Recoil - A state management library for React",
   "main": "cjs/index.js",
   "module": "es/index.js",
@@ -8,7 +8,7 @@
   "unpkg": "umd/index.js",
   "types": "index.d.ts",
   "files": ["umd", "es", "cjs", "native", "index.d.ts"],
-  "repository": "https://github.com/facebookexperimental/Recoil.git",
+  "repository": "https://github.com/Swarmica/Recoil.git",
   "license": "MIT",
   "dependencies": {
     "hamt_plus": "1.0.2"
