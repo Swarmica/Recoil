@@ -345,19 +345,6 @@ function initialStoreState(
   return storeState;
 }
 
-let warned = false;
-function RecoilSuspenseWarning() {
-  // prettier-ignore
-  if (!warned) {
-    warned = true;
-    console.warn( // @oss-only
-    // @fb-only: FBLogger('recoil', 'root_suspended').warn(
-      'Suspended <RecoilRoot> detected. The children of <RecoilRoot> should be wrapped in a <Suspense> boundary since RecoilRoot is not designed to suspend.',
-    );
-  }
-  return null;
-}
-
 let nextID = 0;
 function RecoilRoot_INTERNAL({
   initializeState_DEPRECATED,
@@ -368,12 +355,12 @@ function RecoilRoot_INTERNAL({
 }: InternalProps): React.Node {
   // prettier-ignore
   // @fb-only: useEffect(() => {
-    // @fb-only: if (gkx('recoil_usage_logging')) {
-      // @fb-only: RecoilUsageLogFalcoEvent.log(() => ({
-        // @fb-only: type: RecoilusagelogEvent.RECOIL_ROOT_MOUNTED,
-        // @fb-only: path: URI.getRequestURI().getPath(),
-      // @fb-only: }));
-    // @fb-only: }
+  // @fb-only: if (gkx('recoil_usage_logging')) {
+  // @fb-only: RecoilUsageLogFalcoEvent.log(() => ({
+  // @fb-only: type: RecoilusagelogEvent.RECOIL_ROOT_MOUNTED,
+  // @fb-only: path: URI.getRequestURI().getPath(),
+  // @fb-only: }));
+  // @fb-only: }
   // @fb-only: }, []);
 
   let storeStateRef: {current: StoreState}; // eslint-disable-line prefer-const
@@ -518,7 +505,7 @@ function RecoilRoot_INTERNAL({
   return (
     <AppContext.Provider value={storeRef}>
       <Batcher setNotifyBatcherOfChange={setNotifyBatcherOfChange} />
-      <Suspense fallback={<RecoilSuspenseWarning />}>{children}</Suspense>
+      {children}
     </AppContext.Provider>
   );
 }
